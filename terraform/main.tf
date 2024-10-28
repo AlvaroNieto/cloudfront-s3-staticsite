@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-state-alvaronl"
-    key = "s3-staticsite/terraform.tfstate"
+    key = "cloudfront-s3-staticsite/terraform.tfstate"
     region = "eu-south-2"
     dynamodb_table = "terraform-state-locking"
     encrypt = true
@@ -15,15 +15,27 @@ terraform {
   }
 }
 
-provider "aws" {
+  provider "aws" {
   region = "eu-south-2"
 }
 
-#Deploy S3 and upload files
-module "deployment-alvaronl.com" {
+# Main deployment for a site.
+module "main-deployment" {
   source = "./modules"
 
-  html_path = "../html/"  # Pass the variable to the module
+##Mandatory variables
+hosted_zone_id = ""
+cert_arn = ""
+
+## storage.tf variables
+bucketname = "cloudfront-s3-staticsite-alvaronl-com"
+html_path = "../html/"
+bucket_tags = {
+    Name = "alvaronl.com" 
+    Environment = "Testing"
 }
 
-#Configure cloud front
+## cloudfront.tf variables
+domain = "cloudfront-s3-staticsite.alvaronl.com"
+regionname = "eu-south-2" # Set same region as provider
+}
