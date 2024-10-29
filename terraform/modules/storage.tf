@@ -11,9 +11,10 @@ locals {
   }
 }
 
+# Create bucket
 resource "aws_s3_bucket" "s3_staticsite" {
-  bucket = var.bucketname
-  tags = var.bucket_tags
+  bucket  = var.bucketname
+  tags    = var.bucket_tags
 }
 
 # Enable versioning on the S3 bucket

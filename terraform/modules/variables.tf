@@ -5,12 +5,6 @@ variable "domain" {
   type        = string
 }
 
-variable "hosted_zone_id" {
-  description = "Domain hosted zone id"
-  type        = string
-  sensitive   = true
-}
-
 #Storage variables
 
 variable "bucketname" {
@@ -20,7 +14,7 @@ variable "bucketname" {
 
 variable "bucket_tags" {
   description = "Tag definition for the bucket"
-  type = map(string)
+  type        = map(string)
 }
 
 variable "html_path" {
@@ -28,15 +22,26 @@ variable "html_path" {
   type        = string
 }
 
-variable "cert_arn" {
-  description = "Generated certificated in ACM"
-  type        = string
-  sensitive   = true
-}
-
 #Cloudfront variables
 
 variable "regionname" {
   description = "Region"
   type        = string
+}
+
+variable "cloudfront_tags" {
+  description = "Tag definition for the bucket"
+  type        = map(string)
+}
+
+variable "hosted_zone_id" {
+  description = "Domain hosted zone id"
+  type        = string
+  sensitive   = true
+}
+
+variable "cert_arn" {
+  description = "Generated certificate in ACM-us-east-1"
+  type        = string
+  sensitive   = true
 }

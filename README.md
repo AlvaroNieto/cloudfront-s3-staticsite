@@ -10,15 +10,15 @@ The steps to take are:
     2. Upload to new bucket
     3. Configure CloudFront
     4. Configure subdomain with Route 53
-    5. Document the process along the way.
+    5. Comment the process along the way.
 
 
 ## Needed info before deployment
 
 - A domain ready in Route 53
-- A certificate ready in ACM and us-east-1
+- A certificate ready in ACM in us-east-1
 
-### Mandatory variables 
+### Input variables 
 
-- <hosted_zone_id> The hosted_zone_id of the domain. Can get it with aws cli: <aws route53 list-hosted-zones>
-- <cert_arn> The arn of the certificate. <aws acm list-certificates> (in the us-east-1 region).
+- `hosted_zone_id` - The hosted_zone_id of the domain. Can get it with aws cli: `aws route53 list-hosted-zones`
+- `cert_arn` The arn of the certificate. `aws acm list-certificates` (in the us-east-1 region).
