@@ -43,7 +43,7 @@ module "main-deployment" {
   }
 
   ## cloudfront.tf variables
-  domain          = "cloudfront-s3-staticsite.alvaronl.com"
+  domain          = "alvaronl.com"
   regionname      = "eu-south-2" # Set same region as provider
   hosted_zone_id  = var.input_hosted_zone_id
   cert_arn        = var.input_cert_arn
