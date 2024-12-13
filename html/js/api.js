@@ -1,7 +1,5 @@
 // GET API REQUEST
 async function get_visitors() {
-    // call post api request function
-    //await post_visitor();
     try {
         let response = await fetch('https://grhgkqp0zd.execute-api.eu-south-2.amazonaws.com/default/visit-counter-updater', {
             method: 'GET',
